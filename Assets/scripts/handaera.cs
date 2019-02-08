@@ -22,7 +22,7 @@ public class handaera : MonoBehaviour {
        // amount++;
         for (int i = 0; i < handList.Count; i++)
         {
-            handList[i].GetComponent<Rigidbody>().MovePosition(new Vector3(left.position.x + (right.position.x - left.position.x) / (handList.Count + 2) * (i + 1), handList[i].GetComponent<Transform>().position.y, left.position.z));
+            handList[i].GetComponent<Transform>().position = new Vector3(left.position.x + (right.position.x - left.position.x) / (handList.Count + 2) * (i + 1), handList[i].GetComponent<Transform>().position.y, left.position.z);
         }
         Vector3 f = new Vector3(left.position.x + (right.position.x - left.position.x) / (handList.Count + 2) * (handList.Count + 1), left.position.y, left.position.z);
         GameObject o = Instantiate(card, f, Quaternion.identity) as GameObject;
