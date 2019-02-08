@@ -118,7 +118,7 @@ public class GameController : MonoBehaviour
         pile.deck.RemoveAt(pile.deck.Count - 1);
         while (ghost.dPlie[ghost.dPlie.Count - 1] == card.kinga || ghost.dPlie[ghost.dPlie.Count - 1] == card.kingadd4)
         {
-            PlayTitle("系统重新发给弃牌堆一张牌");
+            PlayTitle("The system reissues a discard pile card");
             Debug.Log("系统又发给弃牌堆一张牌");
             ghost.dPlie.Add(pile.deck[pile.deck.Count - 1]);
             pile.deck.RemoveAt(pile.deck.Count - 1);
@@ -187,7 +187,7 @@ public class GameController : MonoBehaviour
             return false;
         }
         card k = hdq[bout].GetComponent<handaera>().RemoveCard(i);
-        PlayTitle(bout + "号玩家打出" + k);
+        PlayTitle("Player " + bout + " plays card " + k);
         Debug.Log(bout+ "号玩家打出" + k);
         ghost.dPlie.Add(k);
         LsNext(k);
@@ -303,7 +303,7 @@ public class GameController : MonoBehaviour
         }
         hdq[g].GetComponent<handaera>().AddCard(pile.deck[pile.deck.Count - 1]);
         pile.deck.RemoveAt(pile.deck.Count - 1);
-        PlayTitle(g + "号玩家摸了一张牌");
+        PlayTitle("Player " + g + " touches a card");
         Debug.Log(g + "号玩家摸了一张牌");
         if (playOrder)
         {
@@ -323,7 +323,7 @@ public class GameController : MonoBehaviour
 
             hdq[0].GetComponent<handaera>().AddCard(pile.deck[pile.deck.Count - 1]);
             pile.deck.RemoveAt(pile.deck.Count - 1);
-            PlayTitle(0 + "号玩家摸了一张牌");
+            PlayTitle("Player 0 touches a card");
             Debug.Log(0 + "号玩家摸了一张牌");
             if (playOrder)
             {
@@ -354,7 +354,7 @@ public class GameController : MonoBehaviour
     {
         if (pile.deck.Count<5)
         {
-            PlayTitle("系统洗切了牌堆");
+            PlayTitle("The system shuffled the deck");
             Debug.Log("系统洗切了牌堆");
             CardShuffle();
 
@@ -363,7 +363,7 @@ public class GameController : MonoBehaviour
         if (Bout == 0 && playing == 1)
         {
             playing = 0;
-            PlayTitle("我的回合开始了");
+            PlayTitle("My turn begins");
             Debug.Log("我的回合开始了");
         }
 

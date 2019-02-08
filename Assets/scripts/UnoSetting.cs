@@ -6,10 +6,25 @@ using UnityEngine.UI;
 public class UnoSetting : MonoBehaviour {
 
     public Slider slider;
-    
+
+    public Toggle toggle;
+
+    public AudioSource audioSource;
+
     private void Start()
     {
         slider.value = PlayerPrefs.GetFloat("speed");
+        int ison = PlayerPrefs.GetInt("MusicSetting", 1);
+        if (ison == 1)
+        {
+            toggle.isOn = true;
+            audioSource.mute = false;
+        }
+        else
+        {
+            toggle.isOn = false;
+            audioSource.mute = true;
+        }
     }
 
     public void ExitGame()
@@ -33,4 +48,17 @@ public class UnoSetting : MonoBehaviour {
         
     }
 
+    public void SetMusic(bool value)
+    {
+        if (value)
+        {
+            PlayerPrefs.SetInt("MusicSetting", 1);
+            audioSource.mute = false;
+        }
+        else
+        {
+            PlayerPrefs.SetInt("MusicSetting", 0);
+            audioSource.mute = true;
+        }
+    }
 }
